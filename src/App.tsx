@@ -1,16 +1,33 @@
 import type React from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Homepage from "./pages/Homepage";
+import type { CoinType } from "./types";
+import { CoinsContext } from "./context";
 
+import { useEffect, useState } from "react";
+
+import { BrowserRouter as Router } from "react-router-dom";
+import Homepage from "./pages/Homepage";
 import "./styles/App.css";
 
 const App: React.FC = () => {
+	const [cryptos, setCryptos] = useState<CoinType[]>([]);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			const response = await fetch("/bubbles1000.usd.json");
+			const data = await response.json();
+			setCryptos(data);
+		};
+
+		fetchData();
+	}, []);
+
 	return (
 		<Router>
-			<div className="App">
-				<Homepage />
-			</div>
+			<CoinsContext.Provider value={cryptos}>
+				<div className="App">
+					<Homepage />
+				</div>
+			</CoinsContext.Provider>
 		</Router>
 	);
 };

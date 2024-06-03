@@ -1,8 +1,11 @@
-import React from "react";
+import type React from "react";
 import BubbleChart from "../components/BubbleCharts";
+
 import "../styles/homepage.css";
 
-function HomePage() {
+const HomePage: React.FC = () => {
+	
+
 	return (
 		<main className="main">
 			<h1>Crypto Bubbles</h1>
@@ -11,6 +14,6 @@ function HomePage() {
 			</div>
 		</main>
 	);
-}
+};
 
 export default HomePage;
