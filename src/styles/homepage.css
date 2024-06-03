@@ -1,12 +1,11 @@
 .main{
-    height:100vh;
-    width:100vw;
+    height:100%;
+    width:100%;
     display:flex;
     flex-direction: column;
+    background-color: aqua;
 }
 
 .chart-container{
-    display: flex;
-    flex-wrap: wrap;
-    border:1px red solid;
+    height: 100%;
 }

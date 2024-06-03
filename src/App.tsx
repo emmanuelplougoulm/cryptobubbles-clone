@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 import { BrowserRouter as Router } from "react-router-dom";
 import Homepage from "./pages/Homepage";
-import "./styles/App.css";
+import "./styles/app.css";
 
 const App: React.FC = () => {
 	const [cryptos, setCryptos] = useState<CoinType[]>([]);
@@ -24,9 +24,7 @@ const App: React.FC = () => {
 	return (
 		<Router>
 			<CoinsContext.Provider value={cryptos}>
-				<div className="App">
-					<Homepage />
-				</div>
+				<Homepage />
 			</CoinsContext.Provider>
 		</Router>
 	);
