@@ -4,6 +4,7 @@
 	"private": true,
 	"proxy": "https://cryptobubbles.net/backend/data",
 	"dependencies": {
+		"@floating-ui/react-dom": "^2.1.0",
 		"@testing-library/jest-dom": "^5.17.0",
 		"@testing-library/react": "^13.4.0",
 		"@testing-library/user-event": "^13.5.0",
@@ -11,21 +12,32 @@
 		"@types/node": "^16.18.97",
 		"@types/react": "^18.3.3",
 		"@types/react-dom": "^18.3.0",
+		"@types/resize-observer-browser": "^0.1.11",
+		"aria-hidden": "^1.2.4",
+		"class-variance-authority": "^0.7.0",
 		"i": "^0.3.7",
+		"lucide-react": "^0.383.0",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
+		"react-remove-scroll": "^2.5.10",
 		"react-router-dom": "^6.23.1",
-		"react-scripts": "5.0.1",
+		"tailwind-merge": "^2.3.0",
 		"typescript": "^4.9.5",
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
 		"start": "vite",
 		"build": "tsc && vite build",
-		"serve": "vite preview"
+		"serve": "vite preview",
+		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+		"preview": "vite preview"
 	},
 	"browserslist": {
-		"production": [">0.2%", "not dead", "not op_mini all"],
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
 		"development": [
 			"last 1 chrome version",
 			"last 1 firefox version",
@@ -33,7 +45,19 @@
 		]
 	},
 	"devDependencies": {
-		"vite": "^5.2.12",
-		"@vitejs/plugin-react": "^4.3.0"
+		"@biomejs/biome": "1.7.3",
+		"@types/react": "^18.2.66",
+		"@types/react-dom": "^18.2.22",
+		"@typescript-eslint/eslint-plugin": "^7.2.0",
+		"@typescript-eslint/parser": "^7.2.0",
+		"@vitejs/plugin-react": "^4.3.0",
+		"@vitejs/plugin-react-swc": "^3.7.0",
+		"eslint": "^8.57.0",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-react-refresh": "^0.4.6",
+		"tailwindcss": "^3.4.3",
+		"tailwindcss-animate": "^1.0.7",
+		"typescript": "^5.2.2",
+		"vite": "^5.2.12"
 	}
 }
