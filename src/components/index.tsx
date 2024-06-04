@@ -1,4 +1,5 @@
 import Header from "./header/header";
-import Select from "./select/select";
+import Select from "./range-select/range-select";
+import Filters from "./filters/filters";
 
-export { Header, Select };
+export { Header, Select, Filters };

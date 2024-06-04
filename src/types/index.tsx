@@ -44,3 +44,10 @@ export type CoinType = {
 	symbols: SymbolsType;
 	volume: number;
 };
+
+export type ContextType = {
+	coins: [];
+	maxPerPage: number;
+	coinRange: string;
+	timePref: string;
+};

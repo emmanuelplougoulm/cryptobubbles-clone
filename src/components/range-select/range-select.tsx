@@ -7,16 +7,20 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import { context } from "../../context/index";
+import { useContext } from "react";
 
 export default function SelectComponent() {
+	const { setCoinRange } = useContext(context);
+
 	return (
-		<Select>
+		<Select onValueChange={(value) => setCoinRange(value)}>
 			<SelectTrigger className="w-[180px]">
 				<SelectValue placeholder="1-100" />
 			</SelectTrigger>
 			<SelectContent>
 				<SelectGroup>
-					<SelectLabel>Fruits</SelectLabel>
+					<SelectLabel>Ranges</SelectLabel>
 					<SelectItem value="1-100">1-100</SelectItem>
 					<SelectItem value="101-200">101-200</SelectItem>
 					<SelectItem value="201-300">201-300</SelectItem>
