@@ -13,8 +13,9 @@ const App: React.FC = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const response = await fetch("/bubbles1000.usd.json");
+			const response = await fetch("api/backend/data/bubbles1000.usd.json");
 			const data = await response.json();
+			console.log("data", data);
 			setCryptos(data);
 		};
 
