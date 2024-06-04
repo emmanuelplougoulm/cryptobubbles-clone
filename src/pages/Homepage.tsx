@@ -1,14 +1,13 @@
 import type React from "react";
 import BubbleChart from "../components/BubbleCharts";
+import { HeaderComponent } from "../components/index";
 
 import "../styles/homepage.css";
 
 const HomePage: React.FC = () => {
-	
-
 	return (
 		<main className="main">
-			<h1>Crypto Bubbles</h1>
+			<HeaderComponent />
 			<div className="chart-container">
 				<BubbleChart />
 			</div>

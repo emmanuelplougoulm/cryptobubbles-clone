@@ -1,6 +1,6 @@
-import React from "react";
+import type React from "react";
 
-interface Props {}
+type Props = {}
 
 const Navbar: React.FC<Props> = (props) => {
   return <div></div>;
