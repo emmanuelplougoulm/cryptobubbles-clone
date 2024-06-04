@@ -1,5 +1,4 @@
 import type React from "react";
-// import type { CoinType } from "./types";
 import { context } from "./context";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -7,10 +6,10 @@ import Homepage from "./pages/homepage";
 import "./styles/app.css";
 
 const App: React.FC = () => {
-	const [coins, setCoins] = useState();
+	const [coins, setCoins] = useState([]);
 	const [maxPerPage, setMaxPerPage] = useState(100);
-	const [coinRange, setCoinRange] = useState("");
-	const [timePref, setTimePref] = useState("daily");
+	const [coinRange, setCoinRange] = useState("100");
+	const [timePref, setTimePref] = useState("day");
 
 	const contextValues = {
 		coins,

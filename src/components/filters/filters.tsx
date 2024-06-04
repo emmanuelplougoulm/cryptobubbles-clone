@@ -11,11 +11,11 @@ const Filters: React.FC = () => {
 	return (
 		<div className="filters">
 			<Select />
-			<Button onClick={() => setTimePref("hourly")}>Heure</Button>
-			<Button onClick={() => setTimePref("daily")}>Jour</Button>
-			<Button onClick={() => setTimePref("weekly")}>Semaine</Button>
-			<Button onClick={() => setTimePref("monthly")}>Mois</Button>
-			<Button onClick={() => setTimePref("yearly")}>Année</Button>
+			<Button onClick={() => setTimePref("hour")}>Heure</Button>
+			<Button onClick={() => setTimePref("day")}>Jour</Button>
+			<Button onClick={() => setTimePref("week")}>Semaine</Button>
+			<Button onClick={() => setTimePref("month")}>Mois</Button>
+			<Button onClick={() => setTimePref("year")}>Année</Button>
 		</div>
 	);
 };

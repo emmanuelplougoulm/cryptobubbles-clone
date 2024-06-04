@@ -21,16 +21,16 @@ export default function SelectComponent() {
 			<SelectContent>
 				<SelectGroup>
 					<SelectLabel>Ranges</SelectLabel>
-					<SelectItem value="1-100">1-100</SelectItem>
-					<SelectItem value="101-200">101-200</SelectItem>
-					<SelectItem value="201-300">201-300</SelectItem>
-					<SelectItem value="301-400">301-400</SelectItem>
-					<SelectItem value="401-500">401-500</SelectItem>
-					<SelectItem value="501-600">501-600</SelectItem>
-					<SelectItem value="601-700">601-700</SelectItem>
-					<SelectItem value="701-800">701-800</SelectItem>
-					<SelectItem value="801-900">801-900</SelectItem>
-					<SelectItem value="901-1000">901-1000</SelectItem>
+					<SelectItem value="100">1-100</SelectItem>
+					<SelectItem value="200">101-200</SelectItem>
+					<SelectItem value="300">201-300</SelectItem>
+					<SelectItem value="400">301-400</SelectItem>
+					<SelectItem value="500">401-500</SelectItem>
+					<SelectItem value="600">501-600</SelectItem>
+					<SelectItem value="700">601-700</SelectItem>
+					<SelectItem value="800">701-800</SelectItem>
+					<SelectItem value="900">801-900</SelectItem>
+					<SelectItem value="1000">901-1000</SelectItem>
 				</SelectGroup>
 			</SelectContent>
 		</Select>

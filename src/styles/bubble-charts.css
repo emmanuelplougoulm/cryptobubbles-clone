@@ -1,6 +1,5 @@
 .bubble-chart{
     height: 100%;
-    background: red;
     display: flex;
     flex-wrap: wrap;
 }
