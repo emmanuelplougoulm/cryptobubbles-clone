@@ -1,3 +1,4 @@
-import HeaderComponent from "./Header/Header";
+import Header from "./header/header";
+import Select from "./select/select";
 
-export { HeaderComponent };
+export { Header, Select };

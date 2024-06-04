@@ -1,12 +1,14 @@
 import type React from "react";
+import { Select } from "../index";
+import "./header.css";
 
-const HeaderComponent: React.FC = () => {
+const Header: React.FC = () => {
 	return (
-		<header>
+		<header className="header">
 			<div>LOGO</div>
-			<div>SELECT RANGE</div>
+			<Select />
 		</header>
 	);
 };
 
-export default HeaderComponent;
+export default Header;

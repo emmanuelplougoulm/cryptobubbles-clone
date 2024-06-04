@@ -1,15 +1,15 @@
-// https://ajaynjain.medium.com/create-react-app-to-vite-the-ultimate-guide-5153be43a015
+import path from "node:path"
+import react from "@vitejs/plugin-react"
+import { defineConfig } from "vite"
 
-import { defineConfig, } from "vite";
-import plugins from "./plugins";
-
-export default defineConfig(({ mode }) => {
-
-	return {
-		plugins: plugins(mode),
-		server: {
-			port: 3000,
-			open: true,
+export default defineConfig({
+	plugins: [react()],
+	server: {
+		port: 3000
+	},
+	resolve: {
+		alias: {
+			"@": path.resolve(__dirname, "./src"),
 		},
-	};
-});
+	},
+})
