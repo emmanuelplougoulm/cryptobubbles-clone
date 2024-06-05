@@ -3,6 +3,7 @@ import { context } from "./context";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Homepage from "./pages/homepage";
+
 import "./styles/app.css";
 
 const App: React.FC = () => {
@@ -22,15 +23,27 @@ const App: React.FC = () => {
 		setTimePref,
 	};
 
-	useEffect(() => {
-		const fetchData = async () => {
+	const fetchData = async () => {
+		try {
+			console.log("triggered");
 			const response = await fetch("api/backend/data/bubbles1000.usd.json");
 			const data = await response.json();
-			console.log("data", data);
 			setCoins(data);
-		};
+			return data;
+		} catch (err) {
+			console.log("err", err);
+			// throw new Error(err);
+		}
+	};
+
+	useEffect(() => {
+		const intervalId = setInterval(() => {
+			fetchData();
+		}, 60000);
 
 		fetchData();
+
+		return () => clearInterval(intervalId);
 	}, []);
 
 	return (
