@@ -11,6 +11,7 @@ const App: React.FC = () => {
 	const [maxPerPage, setMaxPerPage] = useState(100);
 	const [coinRange, setCoinRange] = useState("100");
 	const [timePref, setTimePref] = useState("day");
+	const [showModal, setShowModal] = useState(false);
 
 	const contextValues = {
 		coins,
@@ -21,6 +22,8 @@ const App: React.FC = () => {
 		setCoinRange,
 		timePref,
 		setTimePref,
+		showModal,
+		setShowModal,
 	};
 
 	const fetchData = async () => {

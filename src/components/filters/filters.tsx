@@ -1,22 +1,38 @@
 import type React from "react";
-import { Button } from "@/components/ui/button";
-import { Select } from "../index";
+import { Select, WatchListModal } from "../index";
 import { context } from "../../context/index";
 import { useContext } from "react";
 import "./filters.css";
 
+const values = ["hour", "day", "week", "month", "year"];
+
 const Filters: React.FC = () => {
-	const { setTimePref } = useContext(context);
+	const { setTimePref, setShowModal } = useContext(context);
 
 	return (
-		<div className="filters">
-			<Select />
-			<Button onClick={() => setTimePref("hour")}>Heure</Button>
-			<Button onClick={() => setTimePref("day")}>Jour</Button>
-			<Button onClick={() => setTimePref("week")}>Semaine</Button>
-			<Button onClick={() => setTimePref("month")}>Mois</Button>
-			<Button onClick={() => setTimePref("year")}>Année</Button>
-		</div>
+		<>
+			<div className="filters">
+				<Select />
+				{values.map((item) => {
+					return (
+						<button
+							key={item}
+							type="button"
+							className="button-filters"
+							onClick={() => setTimePref(item)}
+						>
+							{item}
+						</button>
+					);
+				})}
+
+				<button type="button" onClick={() => setShowModal(true)}>
+					Add watchlist
+				</button>
+			</div>
+
+			{/* <WatchListModal /> */}
+		</>
 	);
 };
 
