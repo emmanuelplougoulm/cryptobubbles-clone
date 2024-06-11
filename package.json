@@ -1,64 +1,61 @@
 {
-	"name": "cryptobubbles-clone",
-	"version": "0.1.0",
-	"private": true,
-	"proxy": "https://cryptobubbles.net/backend/data",
-	"dependencies": {
-		"@floating-ui/react-dom": "^2.1.0",
-		"@radix-ui/react-alert-dialog": "^1.0.5",
-		"@radix-ui/react-dialog": "^1.0.5",
-		"@radix-ui/react-label": "^2.0.2",
-		"@radix-ui/react-select": "^2.0.0",
-		"@radix-ui/react-slot": "^1.0.2",
-		"@testing-library/jest-dom": "^5.17.0",
-		"@testing-library/react": "^13.4.0",
-		"@testing-library/user-event": "^13.5.0",
-		"@types/jest": "^27.5.2",
-		"@types/react": "^18.3.3",
-		"@types/react-dom": "^18.3.0",
-		"@types/resize-observer-browser": "^0.1.11",
-		"aria-hidden": "^1.2.4",
-		"class-variance-authority": "^0.7.0",
-		"clsx": "^2.1.1",
-		"i": "^0.3.7",
-		"lucide-react": "^0.383.0",
-		"react": "^18.3.1",
-		"react-dom": "^18.3.1",
-		"react-remove-scroll": "^2.5.10",
-		"react-router-dom": "^6.23.1",
-		"tailwind-merge": "^2.3.0",
-		"typescript": "^4.9.5",
-		"uuid": "^9.0.1",
-		"web-vitals": "^2.1.4"
-	},
-	"scripts": {
-		"start": "vite",
-		"build": "tsc && vite build",
-		"serve": "vite preview",
-		"lint": "biome lint --error-on-warnings ./src",
-		"preview": "vite preview"
-	},
-	"browserslist": {
-		"production": [">0.2%", "not dead", "not op_mini all"],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
-	},
-	"devDependencies": {
-		"@biomejs/biome": "1.7.3",
-		"@types/node": "^20.14.1",
-		"@types/react": "^18.2.66",
-		"@types/react-dom": "^18.2.22",
-		"@vitejs/plugin-react": "^4.3.0",
-		"@vitejs/plugin-react-swc": "^3.7.0",
-		"autoprefixer": "^10.4.19",
-		"postcss": "^8.4.38",
-		"tailwind": "^4.0.0",
-		"tailwindcss": "^3.4.3",
-		"tailwindcss-animate": "^1.0.7",
-		"typescript": "^5.2.2",
-		"vite": "^5.2.12"
-	}
+  "name": "cryptobubbles-clone",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "https://cryptobubbles.net/backend/data",
+  "dependencies": {
+    "@floating-ui/react-dom": "^2.1.0",
+    "@radix-ui/react-alert-dialog": "^1.0.5",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-select": "^2.0.0",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/resize-observer-browser": "^0.1.11",
+    "aria-hidden": "^1.2.4",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "i": "^0.3.7",
+    "lucide-react": "^0.394.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-remove-scroll": "^2.5.10",
+    "react-router-dom": "^6.23.1",
+    "tailwind-merge": "^2.3.0",
+    "uuid": "^9.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview",
+    "lint": "biome lint --error-on-warnings ./src",
+    "preview": "vite preview"
+  },
+  "browserslist": {
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.7.3",
+    "@types/node": "^20.14.2",
+    "@vitejs/plugin-react": "^4.3.0",
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwind": "^4.0.0",
+    "tailwindcss": "^3.4.4",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.12"
+  }
 }
