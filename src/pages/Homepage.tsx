@@ -10,7 +10,7 @@ import NeumorphismCharts from "../components/charts/neumorphism-charts/neumorphi
 const HomePage: React.FC = () => {
 	return (
 		<main className="main">
-			{/* <Header /> */}
+			<Header />
 			<div className="chart-container">
 				<LoadingBar />
 				<Filters />

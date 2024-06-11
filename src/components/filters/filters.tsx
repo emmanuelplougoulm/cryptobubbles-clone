@@ -1,5 +1,6 @@
 import type React from "react";
-import { Select, WatchListModal } from "../index";
+import { Select } from "../index";
+import { Button } from "@/components/ui/button";
 import { context } from "../../context/index";
 import { useContext } from "react";
 import "./filters.css";
@@ -15,23 +16,17 @@ const Filters: React.FC = () => {
 				<Select />
 				{values.map((item) => {
 					return (
-						<button
+						<Button
 							key={item}
 							type="button"
-							className="button-filters"
 							onClick={() => setTimePref(item)}
+							variant="outline"
 						>
 							{item}
-						</button>
+						</Button>
 					);
 				})}
-
-				<button type="button" onClick={() => setShowModal(true)}>
-					Add watchlist
-				</button>
 			</div>
-
-			{/* <WatchListModal /> */}
 		</>
 	);
 };
