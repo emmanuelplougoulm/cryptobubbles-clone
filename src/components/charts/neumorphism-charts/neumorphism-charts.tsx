@@ -2,7 +2,7 @@ import type React from "react";
 import type { CoinType } from "../../../types/index";
 import { useContext } from "react";
 import { context } from "../../../context/index";
-import Bubble from "../../Bubble";
+import Bubble from "../../bubble/Bubble";
 import "./neumorphism-charts.css";
 
 import ReactDOM from "react-dom";

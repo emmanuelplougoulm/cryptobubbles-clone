@@ -1,5 +1,5 @@
 import type React from "react";
-import "../styles/bubble.css";
+import "./bubble.css";
 
 type BubbleProps = {
 	name: string;
