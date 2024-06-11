@@ -26,6 +26,10 @@ const App: React.FC = () => {
 		setShowModal,
 	};
 
+	useEffect(() => {
+		localStorage.setItem("settings", JSON.stringify({}));
+	}, []);
+
 	const fetchData = async () => {
 		try {
 			console.log("triggered");
@@ -39,6 +43,7 @@ const App: React.FC = () => {
 		}
 	};
 
+	// review this - you're not supposed to do this in a useEffect
 	useEffect(() => {
 		const intervalId = setInterval(() => {
 			fetchData();

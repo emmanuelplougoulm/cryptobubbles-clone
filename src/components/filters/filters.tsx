@@ -26,13 +26,7 @@ const Filters: React.FC = () => {
 						</Button>
 					);
 				})}
-				<Button
-					type="button"
-					onClick={() => setShowModal(true)}
-					variant="outline"
-				>
-					<WatchListModal />
-				</Button>
+				<WatchListModal />
 			</div>
 		</>
 	);
