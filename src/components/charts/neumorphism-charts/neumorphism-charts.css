@@ -1,0 +1,7 @@
+.bubble-chart{
+    max-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    padding:10px;
+    margin:0 30px;
+}

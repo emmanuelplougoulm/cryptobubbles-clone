@@ -1,9 +1,18 @@
 import type React from "react";
-import type { CoinType } from "../types/index";
+import type { CoinType } from "../../../types/index";
 import { useContext } from "react";
-import { context } from "../context/index";
-import Bubble from "./Bubble";
-import "../styles/bubble-charts.css";
+import { context } from "../../../context/index";
+import Bubble from "../../Bubble";
+import "./neumorphism-charts.css";
+
+import ReactDOM from "react-dom";
+import CircleCanvas from "../../CircleCanvas";
+
+// https://codepen.io/hrahimi270/pen/yLOeWxm
+// https://codepen.io/mosfetti/pen/JjaYaVy
+// https://codepen.io/mimikos/pen/oWJjYZ
+// https://discourse.threejs.org/t/how-to-create-a-floating-bubble-changing-its-shape-dynamically/17840
+// https://codepen.io/hbagency/pen/Nrdbdp
 
 type SliceIndexesType = { [key: string]: Array<number> };
 
@@ -26,6 +35,8 @@ const BubbleCharts: React.FC = () => {
 
 	return (
 		<div className="bubble-chart">
+			{/* <CircleCanvas data={coins} /> */}
+
 			{coins.slice(start, end).map((crypto: CoinType) => (
 				<Bubble
 					key={crypto.id}

@@ -1,17 +1,22 @@
 import type React from "react";
-import BubbleChart from "../components/BubbleCharts";
 import { Header, Filters, LoadingBar } from "../components/index";
-
+import { useContext } from "react";
+import { context } from "../context/index";
 import "../styles/homepage.css";
+
+// KEEP
+import NeumorphismCharts from "../components/charts/neumorphism-charts/neumorphism-charts";
 
 const HomePage: React.FC = () => {
 	return (
 		<main className="main">
-			<Header />
+			{/* <Header /> */}
 			<div className="chart-container">
-				<Filters />
 				<LoadingBar />
-				<BubbleChart />
+				<Filters />
+
+				{/* KEEP */}
+				{/* <NeumorphismCharts /> */}
 			</div>
 		</main>
 	);
