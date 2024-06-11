@@ -1,5 +1,5 @@
 import type React from "react";
-import { Select } from "../index";
+import { Select, WatchListModal } from "../index";
 import { Button } from "@/components/ui/button";
 import { context } from "../../context/index";
 import { useContext } from "react";
@@ -26,6 +26,13 @@ const Filters: React.FC = () => {
 						</Button>
 					);
 				})}
+				<Button
+					type="button"
+					onClick={() => setShowModal(true)}
+					variant="outline"
+				>
+					<WatchListModal />
+				</Button>
 			</div>
 		</>
 	);

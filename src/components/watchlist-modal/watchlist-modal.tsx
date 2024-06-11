@@ -1,24 +1,36 @@
 import type React from "react";
 import { useContext } from "react";
 import { context } from "../../context/index";
-import "./watchlist-modal.css";
+
+import {
+	Dialog,
+	DialogContent,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+
+// import "./watchlist-modal.css";
 
 // interface Props {
 // 	open: boolean;
 // }
 
 const WatchlistModal: React.FC = () => {
-	const { showModal, setShowModal } = useContext(context);
+	// const { showModal, setShowModal } = useContext(context);
 
-	console.log("open", open);
+	// console.log("open", open);
 	return (
-		<dialog className={"dialog"}>
-			<div className={"card"}>
-				<h1>Pick a name for your watchlist</h1>
-				<input type="text" className={"input"} />
-				<button onClick={() => setShowModal(false)}>Add watchlist</button>
-			</div>
-		</dialog>
+		<Dialog>
+			<DialogTrigger>Add watchlist</DialogTrigger>
+			<DialogContent>
+				<DialogHeader>
+					<DialogTitle>Pick a watchlist name</DialogTitle>
+				</DialogHeader>
+				<Input type="text" placeholder="watchlist name" />
+			</DialogContent>
+		</Dialog>
 	);
 };
 
