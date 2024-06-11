@@ -1,5 +1,30 @@
 .filters{
+    margin:0 30px;
+    padding:10px;
     display: flex;
+    align-items: center;
+    gap:1rem;
     height:80px;
     background: greenyellow;
+    border-radius: 50px;
+background: #e0e0e0;
+border-radius: 19px;
+background: #f3f1f3;
+box-shadow: inset 5px 5px 10px #e7e5e7,
+            inset -5px -5px 10px #fffdff;
+}
+
+
+.button-filters{
+    text-align:center;
+    height:50px;
+    border:none;
+    padding: 1rem;
+    border-radius: 19px;
+background: #f3f1f3;
+box-shadow:  5px 5px 10px #e7e5e7,
+             -5px -5px 10px #fffdff;
+
+
+
 }

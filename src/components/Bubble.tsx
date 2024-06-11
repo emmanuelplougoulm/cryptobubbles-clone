@@ -3,20 +3,20 @@ import "../styles/bubble.css";
 
 type BubbleProps = {
 	name: string;
+	imgUrl: string;
 	performance: number;
 };
 
-const Bubble: React.FC<BubbleProps> = ({ name, performance }) => {
+const Bubble: React.FC<BubbleProps> = ({ name, performance, imgUrl }) => {
 	const bubbleStyle = {
 		width: "100px",
 		height: "100px",
-		// width: `${Math.sqrt(crypto.market_cap) / 1000}px`,
-		// height: `${Math.sqrt(crypto.market_cap) / 1000}px`,
-		backgroundColor: performance > 0 ? "green" : "red",
+		// border: performance > 0 ? " 1px green solid" : "red",
 	};
 
 	return (
 		<div className="bubble" style={bubbleStyle}>
+			<img alt="img" src={imgUrl} />
 			<div>{name}</div>
 			<div>{performance}</div>
 		</div>

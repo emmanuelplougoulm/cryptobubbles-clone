@@ -3,7 +3,8 @@
     width:100%;
     display:flex;
     flex-direction: column;
-    background-color: aqua;
+    /* background-color: #e0e0e0; */
+    background-color: #f3f1f3;
 }
 
 .chart-container{
