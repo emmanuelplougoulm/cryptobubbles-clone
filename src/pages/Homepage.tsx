@@ -6,6 +6,7 @@ import "../styles/homepage.css";
 
 // KEEP
 import NeumorphismCharts from "../components/charts/neumorphism-charts/neumorphism-charts";
+import HtmlCharts from "../components/charts/html-charts/html-charts";
 
 const HomePage: React.FC = () => {
 	return (
@@ -16,7 +17,7 @@ const HomePage: React.FC = () => {
 				<Filters />
 
 				{/* KEEP */}
-				{/* <NeumorphismCharts /> */}
+				<HtmlCharts />
 			</div>
 		</main>
 	);

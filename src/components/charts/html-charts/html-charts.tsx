@@ -2,12 +2,17 @@ import React, { useContext, useRef, useEffect } from "react";
 import { context } from "../../../context/index";
 import "./html-charts.css";
 
-// Définir le type de chaque pièce (coin)
 type CoinType = {
-  // Définissez ici les types pour les propriétés de chaque coin
+  symbol: string; // Ajoutez cette ligne pour inclure le symbole du coin
+  performance: {
+    months: number;
+    year: number;
+    day: number;
+    // Ajoutez d'autres clés selon vos besoins
+  };
+  // Autres propriétés de chaque coin
 };
 
-// Définir les tranches (ranges) de pièces
 const sliceValues: { [key: string]: [number, number] } = {
   "100": [0, 99],
   "200": [100, 199],
@@ -21,13 +26,13 @@ const sliceValues: { [key: string]: [number, number] } = {
   "1000": [900, 999],
 };
 
-const NeumorphismCharts: React.FC = () => {
+const HtmlCharts: React.FC = () => {
   const { coins, coinRange, timePref } = useContext(context);
   const [start, end] = sliceValues[coinRange];
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const bubblesRef = useRef<any[]>([]);
-  const animationIdRef = useRef<number>(); // Référence pour l'ID de l'animation
+  const animationIdRef = useRef<number>();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -39,7 +44,6 @@ const NeumorphismCharts: React.FC = () => {
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
 
-    // Classe pour représenter une bulle
     class Bubble {
       x: number;
       y: number;
@@ -47,14 +51,18 @@ const NeumorphismCharts: React.FC = () => {
       dx: number;
       dy: number;
       color: string;
+      performance: number;
+      symbol: string; // Nouvelle propriété pour stocker le symbole du coin
 
-      constructor(x: number, y: number, radius: number, dx: number, dy: number, color: string) {
+      constructor(x: number, y: number, radius: number, dx: number, dy: number, color: string, performance: number, symbol: string) {
         this.x = x;
         this.y = y;
         this.radius = radius;
-        this.dx = dx; // Vitesse horizontale
-        this.dy = dy; // Vitesse verticale
+        this.dx = dx;
+        this.dy = dy;
         this.color = color;
+        this.performance = performance;
+        this.symbol = symbol;
       }
 
       draw() {
@@ -63,6 +71,17 @@ const NeumorphismCharts: React.FC = () => {
         ctx.fillStyle = this.color;
         ctx.fill();
         ctx.closePath();
+
+        // Dessiner le pourcentage de performance au centre de la bulle
+        ctx.fillStyle = "black"; // Couleur du texte
+        ctx.font = `${this.radius / 4}px Arial`; // Taille du texte proportionnelle au rayon
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(`${this.performance}%`, this.x, this.y);
+
+        // Dessiner le symbole du coin en dessous du pourcentage de performance
+        ctx.font = `${this.radius / 6}px Arial`; // Taille du texte légèrement plus petite
+        ctx.fillText(this.symbol, this.x, this.y + this.radius / 3);
       }
 
       update() {
@@ -97,36 +116,22 @@ const NeumorphismCharts: React.FC = () => {
       }
     }
 
-    // Fonction pour générer des bulles sans superposition
-    const generateBubble = (): Bubble => {
-      const radius = Math.random() * 20 + 10;
+    const generateBubble = (coin: CoinType): Bubble => {
+      let performanceValue = coin.performance[timePref];
+      const normalizedPerformance = Math.max(0, performanceValue); // Assure que la performance est positive
+      const radius = Math.sqrt(normalizedPerformance) * 10 + 45; // Ajustement pour le rayon, par exemple sqrt(performance) * 10
       const x = Math.random() * (canvas.width - radius * 2) + radius;
       const y = Math.random() * (canvas.height - radius * 2) + radius;
+      const dx = (Math.random() - 0.5) * 1;
+      const dy = (Math.random() - 0.5) * 1;
+      const color = performanceValue >= 0 ? "green" : "red"; // Couleur basée sur la performance
 
-      // Vérifier la collision avec les bulles existantes
-      for (let i = 0; i < bubblesRef.current.length; i++) {
-        const existingBubble = bubblesRef.current[i];
-        const distanceX = x - existingBubble.x;
-        const distanceY = y - existingBubble.y;
-        const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
-
-        if (distance < radius + existingBubble.radius) {
-          return generateBubble();
-        }
-      }
-
-      const dx = (Math.random() - 0.5) * 1; // Réduit la vitesse horizontale
-      const dy = (Math.random() - 0.5) * 1; // Réduit la vitesse verticale
-      const color = "blue"; // Couleur aléatoire ou fixe, selon vos besoins
-
-      return new Bubble(x, y, radius, dx, dy, color);
+      return new Bubble(x, y, radius, dx, dy, color, performanceValue, coin.symbol); // Passer le symbole à la bulle
     };
 
-    // Initialisation des bulles
-    const bubbles: Bubble[] = coins.slice(start, end).map(() => generateBubble());
+    const bubbles: Bubble[] = coins.slice(start, end).map((coin: CoinType) => generateBubble(coin));
     bubblesRef.current = bubbles;
 
-    // Fonction d'animation
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -142,23 +147,20 @@ const NeumorphismCharts: React.FC = () => {
       animationIdRef.current = requestAnimationFrame(animate);
     };
 
-    // Démarrer l'animation
     animate();
 
-    // Nettoyage avant le démontage du composant
     return () => {
       if (animationIdRef.current) {
         cancelAnimationFrame(animationIdRef.current);
       }
     };
-
   }, [coins, coinRange, timePref]);
 
   return (
     <div className="bubble-chart">
-      <canvas ref={canvasRef} style={{ border: "1px solid black" }}></canvas>
+      <canvas ref={canvasRef} ></canvas>
     </div>
   );
 };
 
-export default NeumorphismCharts;
+export default HtmlCharts;

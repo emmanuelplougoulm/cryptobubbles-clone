@@ -7,13 +7,23 @@
 } */
 
 .bubble-chart {
-    width: 100%;
-    height: 100vh;
-    background-color: #f0f0f3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  position: relative;
+  width: 100%;
+  height: 100%; /* Ajustez la hauteur selon vos besoins */
+  background-color: #f0f0f0; /* Couleur de fond */
+}
+
+.bubble {
+  position: absolute;
+  background-color: #ffffff; /* Couleur de fond des bulles */
+  border-radius: 50%; /* Forme de la bulle */
+  box-shadow: 
+    5px 5px 10px #c4c4c4,
+    -5px -5px 10px #ffffff; /* Ombre neumorphique */
+  transition: transform 0.2s ease-out; /* Transition pour l'effet de hover */
+
+  /* Ajoutez d'autres styles comme la taille et la couleur ici */
+}
 
   canvas {
     /* width: 100%;
