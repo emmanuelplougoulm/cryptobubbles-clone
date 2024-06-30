@@ -1,12 +1,19 @@
 import type React from "react";
 import type { CoinType } from "../../../types/index";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { context } from "../../../context/index";
 import Bubble from "../../bubble/Bubble";
 import "./neumorphism-charts.css";
 
 import ReactDOM from "react-dom";
-import CircleCanvas from "../../CircleCanvas";
+// import CircleCanvas from "../../CircleCanvas";
+
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+// import { CoinType } from '../../../types';
+// import { context } from '../../../context';
+import BouncingBubble from '../../boucing-bubble/boucing-bubble';
+
 
 // https://codepen.io/hrahimi270/pen/yLOeWxm
 // https://codepen.io/mosfetti/pen/JjaYaVy
@@ -29,23 +36,42 @@ const sliceValues: SliceIndexesType = {
 	"1000": [900, 999],
 };
 
-const BubbleCharts: React.FC = () => {
+const NeumorphismCharts: React.FC = () => {
 	const { coins, coinRange, timePref } = useContext(context);
 	const [start, end] = sliceValues[coinRange];
+	const bubbles = useRef([]);
+
 
 	return (
 		<div className="bubble-chart">
+			   <Canvas>
+        <ambientLight />
+        <pointLight position={[10, 10, 10]} />
+        <OrbitControls />
+        {coins.slice(start, end).map((crypto: CoinType, index: number) => (
+           <BouncingBubble 
+		   key={crypto.id} 
+		   position={[
+			 (Math.random() - 0.5) * 2,
+			 (Math.random() - 0.5) * 2,
+			 (Math.random() - 0.5) * 2
+		   ]}
+		   color={`hsl(${Math.random() * 360}, 100%, 50%)`}
+		   bubbles={bubbles}
+		 />
+        ))}
+      </Canvas>
 			{/* <CircleCanvas data={coins} /> */}
 
-			{coins.slice(start, end).map((crypto: CoinType) => (
-				<Bubble
-					key={crypto.id}
-					name={crypto.name}
-					performance={crypto.performance[timePref]}
-				/>
-			))}
+			{/* {coins.slice(start, end).map((crypto: CoinType) => (
+				
+
+
+
+
+			))} */}
 		</div>
 	);
 };
 
-export default BubbleCharts;
+export default NeumorphismCharts;
