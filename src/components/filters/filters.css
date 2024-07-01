@@ -8,3 +8,8 @@
     background-color: rgb(255, 255, 255);
     border: 1px grey solid;
 }
+
+.selected{
+    background-color:gray;
+    color:#ffffff
+}

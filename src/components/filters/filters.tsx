@@ -8,7 +8,7 @@ import "./filters.css";
 const values = ["hour", "day", "week", "month", "year"];
 
 const Filters: React.FC = () => {
-	const { setTimePref, setShowModal } = useContext(context);
+	const { setTimePref, timePref } = useContext(context);
 
 	return (
 		<>
@@ -18,6 +18,7 @@ const Filters: React.FC = () => {
 					return (
 						<Button
 							key={item}
+							className={item === timePref ? "selected" : ""}
 							type="button"
 							onClick={() => setTimePref(item)}
 							variant="outline"
