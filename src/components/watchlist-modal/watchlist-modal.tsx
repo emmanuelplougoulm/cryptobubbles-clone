@@ -2,6 +2,7 @@ import type React from "react";
 import { useContext, useState } from "react";
 import { context } from "../../context/index";
 import { Button } from "@/components/ui/button";
+import "./watchlist-modal.css";
 
 import {
 	Dialog,
@@ -12,33 +13,44 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 
-// import "./watchlist-modal.css";
-
 const WatchlistModal: React.FC = () => {
 	const { showModal, setShowModal } = useContext(context);
 	const [inputValue, setInputValue] = useState("");
 
+	const generateId = () => {
+		return `_ ${Math.random().toString(36)}`;
+	};
+
+	const newlist = {
+		id: generateId(),
+		items: [],
+		name: inputValue,
+	};
+
 	const handleOnChange = (event) => {
 		setInputValue(event.target.value);
 	};
-	const handleAddWatchlist = () => {
-		const storageString = localStorage.getItem("settings");
 
-		if (storageString) {
-			const storageObject = JSON.parse(storageString);
-			storageObject[inputValue] = {};
-			localStorage.setItem("settings", JSON.stringify(storageObject));
+	const handleAddWatchlist = () => {
+		const watchlists = localStorage.getItem("watchlists");
+		// console.log("watchlists", watchlists);
+		// console.log("watchlists", typeof watchlists);
+
+		if (watchlists) {
+			const parsedWatchLists = JSON.parse(watchlists);
+			// console.log("prevWatchlists", parsedWatchLists);
+
+			parsedWatchLists.push(newlist);
+			localStorage.setItem("watchlists", JSON.stringify(parsedWatchLists));
 		} else {
-			console.log(
-				'Aucune donnée trouvée dans le localStorage pour la clé "myObject".',
-			);
+			localStorage.setItem("watchlists", JSON.stringify([newlist]));
 		}
 		setShowModal(false);
 	};
 
 	return (
 		<Dialog open={showModal} onOpenChange={setShowModal}>
-			<DialogTrigger>Add watchlist</DialogTrigger>
+			<DialogTrigger className="trigger">Add watchlist</DialogTrigger>
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle>Pick a watchlist name</DialogTitle>

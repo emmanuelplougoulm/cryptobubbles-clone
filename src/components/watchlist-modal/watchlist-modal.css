@@ -37,3 +37,9 @@
     box-shadow: inset 5px 5px 10px #cfcdcf,
         inset -5px -5px 10px #ffffff;
 }
+
+.trigger{
+    padding:0.4rem;
+    border:1px lightgray solid;
+    border-radius: 4px;
+}
