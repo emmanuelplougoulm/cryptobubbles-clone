@@ -50,4 +50,8 @@ export type ContextType = {
 	maxPerPage: number;
 	coinRange: string;
 	timePref: string;
+	currentWatchlist: string | null;
+	setTimePref?: (timePref: string) => void;
+	setCoinRange: (range: string) => void;
+	setCurrentWatchlist: (range: string | null) => void;
 };

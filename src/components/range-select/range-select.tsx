@@ -11,10 +11,15 @@ import { context } from "../../context/index";
 import { useContext } from "react";
 
 export default function SelectComponent() {
-	const { setCoinRange } = useContext(context);
+	const { setCoinRange, setCurrentWatchlist } = useContext(context);
+
+	const handleOnChange = (value: string) => {
+		setCoinRange(value);
+		setCurrentWatchlist(null);
+	};
 
 	return (
-		<Select onValueChange={(value) => setCoinRange(value)}>
+		<Select onValueChange={(value) => handleOnChange(value)}>
 			<SelectTrigger className="w-[180px]">
 				<SelectValue placeholder="1-100" />
 			</SelectTrigger>

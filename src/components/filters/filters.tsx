@@ -1,5 +1,5 @@
 import type React from "react";
-import { Select, WatchListModal } from "../index";
+import { RangeSelect, WatchListModal, WatchlistSelect } from "../index";
 import { Button } from "@/components/ui/button";
 import { context } from "../../context/index";
 import { useContext } from "react";
@@ -13,7 +13,7 @@ const Filters: React.FC = () => {
 	return (
 		<>
 			<div className="filters">
-				<Select />
+				<RangeSelect />
 				{values.map((item) => {
 					return (
 						<Button
@@ -28,6 +28,7 @@ const Filters: React.FC = () => {
 					);
 				})}
 				<WatchListModal />
+				<WatchlistSelect />
 			</div>
 		</>
 	);

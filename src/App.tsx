@@ -12,6 +12,7 @@ const App: React.FC = () => {
 	const [coinRange, setCoinRange] = useState("100");
 	const [timePref, setTimePref] = useState("day");
 	const [showModal, setShowModal] = useState(false);
+	const [currentWatchlist, setCurrentWatchlist] = useState(null);
 
 	const contextValues = {
 		coins,
@@ -24,15 +25,12 @@ const App: React.FC = () => {
 		setTimePref,
 		showModal,
 		setShowModal,
+		currentWatchlist,
+		setCurrentWatchlist,
 	};
-
-	useEffect(() => {
-		localStorage.setItem("settings", JSON.stringify({}));
-	}, []);
 
 	const fetchData = async () => {
 		try {
-			console.log("triggered");
 			const response = await fetch("api/backend/data/bubbles1000.usd.json");
 			const data = await response.json();
 			setCoins(data);
