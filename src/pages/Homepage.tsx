@@ -7,6 +7,7 @@ import { useContext, useState } from "react";
 
 // import NeumorphismCharts from "../components/charts/neumorphism-charts/neumorphism-charts";
 import HtmlCharts from "../components/charts/html-charts/html-charts";
+import WatchlistCharts from "../components/charts/watchlist-charts/watchlist-charts";
 
 const HomePage: React.FC = () => {
 	const { currentWatchlist } = useContext(context);
@@ -18,7 +19,7 @@ const HomePage: React.FC = () => {
 				<LoadingBar />
 				<Filters />
 
-				{currentWatchlist ? <div>watchlist</div> : <HtmlCharts />}
+				{currentWatchlist ? <WatchlistCharts /> : <HtmlCharts />}
 			</div>
 		</main>
 	);
